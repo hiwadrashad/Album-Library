@@ -17,18 +17,20 @@
                   <div class="d-flex justify-content-center row">
                       <div class="col-md-10">
 <!--                                 item
--->                            <div class="row p-2 bg-white border rounded">
-                              <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/WHCLvMB.jpeg"></div>
+-->  
+                    <ul>   
+                           <li *ngFor="let item of JSONPOSTS">
+                            <div class="row p-2 bg-white border rounded">
+                              <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="{{ item.shownthumbnaulurl }}"></div>
                               <div class="col-md-6 mt-1">
-                                  <h5>ASAP Rocky</h5>
+                                  <h5>{{ item.songname }}</h5>
                                   <div class="d-flex flex-row">
                                       <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
                                   </div>
-                                  <div class="mt-1 mb-1 spec-1"><span>Hip-Hop</span></div>
-                                  <p class="text-justify text-truncate para mb-0">Lorem ipsum dolor sit amet, consectetuer.<br>
-                                       Aenean massa. Cum sociis natoque penatibus et<br>
-                                       nascetur ridiculus mus. Donec quam felis, ultricies.<br>
-                                       </p>
+                                  <div class="mt-1 mb-1 spec-1"><span>{{ item.genre }}</span></div>
+                                  <p class="text-justify text-truncate para mb-0">
+                                      {{ item.title}}
+                                 </p>
                               </div>
                               <div class="align-items-center align-content-center col-md-3 border-left mt-1">
                                   <div class="d-flex flex-row align-items-center">
@@ -37,66 +39,9 @@
                                   <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to list</button></div>
                               </div>
                           </div>
-                          <div class="row p-2 bg-white border rounded">
-                              <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/WHCLvMB.jpeg"></div>
-                              <div class="col-md-6 mt-1">
-                                  <h5>ASAP Rocky</h5>
-                                  <div class="d-flex flex-row">
-                                      <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                                  </div>
-                                  <div class="mt-1 mb-1 spec-1"><span>Hip-Hop</span></div>
-                                  <p class="text-justify text-truncate para mb-0">Lorem ipsum dolor sit amet, consectetuer.<br>
-                                       Aenean massa. Cum sociis natoque penatibus et<br>
-                                       nascetur ridiculus mus. Donec quam felis, ultricies.<br>
-                                       </p>
-                              </div>
-                              <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                  <div class="d-flex flex-row align-items-center">
-                                  </div>
-                                  <h6 class="text-success">Options</h6>
-                                  <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to list</button></div>
-                              </div>
-                          </div>
-                          <div class="row p-2 bg-white border rounded">
-                              <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/WHCLvMB.jpeg"></div>
-                              <div class="col-md-6 mt-1">
-                                  <h5>ASAP Rocky</h5>
-                                  <div class="d-flex flex-row">
-                                      <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                                  </div>
-                                  <div class="mt-1 mb-1 spec-1"><span>Hip-Hop</span></div>
-                                  <p class="text-justify text-truncate para mb-0">Lorem ipsum dolor sit amet, consectetuer.<br>
-                                       Aenean massa. Cum sociis natoque penatibus et<br>
-                                       nascetur ridiculus mus. Donec quam felis, ultricies.<br>
-                                       </p>
-                              </div>
-                              <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                  <div class="d-flex flex-row align-items-center">
-                                  </div>
-                                  <h6 class="text-success">Options</h6>
-                                  <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to list</button></div>
-                              </div>
-                          </div>
-                          <div class="row p-2 bg-white border rounded">
-                              <div class="col-md-3 mt-1"><img class="img-fluid img-responsive rounded product-image" src="https://i.imgur.com/WHCLvMB.jpeg"></div>
-                              <div class="col-md-6 mt-1">
-                                  <h5>ASAP Rocky</h5>
-                                  <div class="d-flex flex-row">
-                                      <div class="ratings mr-2"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
-                                  </div>
-                                  <div class="mt-1 mb-1 spec-1"><span>Hip-Hop</span></div>
-                                  <p class="text-justify text-truncate para mb-0">Lorem ipsum dolor sit amet, consectetuer.<br>
-                                       Aenean massa. Cum sociis natoque penatibus et<br>
-                                       nascetur ridiculus mus. Donec quam felis, ultricies.<br>
-                                       </p>
-                              </div>
-                              <div class="align-items-center align-content-center col-md-3 border-left mt-1">
-                                  <div class="d-flex flex-row align-items-center">
-                                  </div>
-                                  <h6 class="text-success">Options</h6>
-                                  <div class="d-flex flex-column mt-4"><button class="btn btn-primary btn-sm" type="button">Details</button><button class="btn btn-outline-primary btn-sm mt-2" type="button">Add to list</button></div>
-                              </div>
-                          </div>
+                          </li>
+                          
+                          </ul>
                         
                       </div>
                   </div>
