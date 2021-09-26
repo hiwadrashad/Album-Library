@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { JSONRESPONSE } from './DTOs/JSONRESPONSE';
+import { JSONRESPONSE } from '../../DTOs/JSONRESPONSE';
 
 @Injectable({
   providedIn: 'root'

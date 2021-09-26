@@ -1,3 +1,19 @@
+<style>
+
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background-color: lightgray;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #11171a;
+  border-radius: 10px;
+}
+</style>
 <div class="recent-listing-2 align-sub-main-child">
     <div class="container arc-main-container">
         <div class="row">
@@ -10,18 +26,20 @@
                   <div class="d-flex justify-content-center row">
                       <div class="col-md-10">
 <!--                                 item
--->                        
+--> 
+<ul> 
+<li *ngFor="let item of Value">              
 <div class="card">
 <div class="card-header">
-<img src="https://i.imgur.com/WHCLvMB.jpeg" alt="rover" />
+<img src="{{ item.shownthumbnaulurl }}" alt="rover" />
 </div>
 <div class="card-body">
-<span class="tag tag-teal">Hip-Hop</span>
+<span class="tag tag-teal">{{ item.genre }}</span>
 <h4>
-  ASAP Rocky
+  {{ item.songname }}
 </h4>
 <p>
-  Aenean massa. Cum sociis natoque penatibus et 
+  {{ item.title }}
 </p>
 <div class="user">
 <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
@@ -32,48 +50,8 @@
 </div>
 </div>
 </div>
-<div class="card">
-<div class="card-header">
-<img src="https://i.imgur.com/WHCLvMB.jpeg" alt="rover" />
-</div>
-<div class="card-body">
-<span class="tag tag-teal">Hip-Hop</span>
-<h4>
-    ASAP Rocky
-</h4>
-<p>
-    Aenean massa. Cum sociis natoque penatibus et 
-</p>
-<div class="user">
-  <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-  <div class="user-info">
-    <h5>July Dec</h5>
-    <small>2h ago</small>
-  </div>
-</div>
-</div>
-</div>
-<div class="card">
-<div class="card-header">
-<img src="https://i.imgur.com/WHCLvMB.jpeg" alt="rover" />
-</div>
-<div class="card-body">
-<span class="tag tag-teal">Hip-Hop</span>
-<h4>
-    ASAP Rocky
-</h4>
-<p>
-    Aenean massa. Cum sociis natoque penatibus et 
-</p>
-<div class="user">
-  <img src="https://yt3.ggpht.com/a/AGF-l7-0J1G0Ue0mcZMw-99kMeVuBmRxiPjyvIYONg=s900-c-k-c0xffffffff-no-rj-mo" alt="user" />
-  <div class="user-info">
-    <h5>July Dec</h5>
-    <small>2h ago</small>
-  </div>
-</div>
-</div>
-</div>
+</li>
+</ul>
 </div>
 
 

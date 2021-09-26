@@ -1,7 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { JSONRESPONSE } from '../Core/Services/DTOs/JSONRESPONSE';
+import { JSONRESPONSE } from '../DTOs/JSONRESPONSE';
 import { finalize } from 'rxjs/operators'
+import { StoreListSingleton } from './../Singletons/StoreListSingleton'
+import { BehaviorSubject } from 'rxjs';
+import { DatatransferService } from '../Core/Services/datatransfer.service';
 
 function getRandomInt(max : number) {
   return Math.floor(Math.random() * max);
@@ -16,8 +19,10 @@ function getRandomInt(max : number) {
 export class MainComponent implements OnInit {
 
   JSONPOSTS! : JSONRESPONSE[];
+  ListSingleton! : StoreListSingleton;
 
-  constructor(public httpClient : HttpClient) { 
+  constructor(public httpClient : HttpClient, private message: DatatransferService) { 
+    this.ListSingleton = StoreListSingleton.GetSingleton;
     let test = this.httpClient.get<any>("https://jsonplaceholder.typicode.com/photos");
     test.pipe( finalize(() => {
       
@@ -60,6 +65,18 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  public AddToList(Id : number)
+  {
+    let JSONTOADD! : JSONRESPONSE;
+    this.JSONPOSTS.forEach(element => {
+      if (element.id === Id)
+      {
+        JSONTOADD = element;
+      }
+    });
+    this.message.sendMessage(JSONTOADD);
   }
 
 }
