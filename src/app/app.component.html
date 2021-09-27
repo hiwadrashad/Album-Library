@@ -85,7 +85,7 @@
   
                               <div class="col-lg-3 align-self-center">
                                   <div>
-                                      <input asp-for="Query" type="text" class="input-field">
+                                      <input asp-for="Query" type="text" class="input-field" (keyup)="SearchQuery($event)">
                                   </div>
                               </div>
                               <div class="col-lg-3">

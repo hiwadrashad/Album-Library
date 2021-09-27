@@ -4,6 +4,7 @@ import { APIService } from './Core/Services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { timer } from 'rxjs';
 import { StoreListSingleton } from './Singletons/StoreListSingleton';
+import { InputdatatransferService } from './Core/Services/inputdatatransfer.service';
 
 function delay(ms: number) {
   return new Promise( resolve => setTimeout(resolve, ms) );
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   JSONPOSTS! : JSONRESPONSE[];
   JSONSAVELIST! : JSONRESPONSE[];
   
-  constructor(public apiserice : APIService, public httpClient : HttpClient)
+  constructor(public apiserice : APIService, public httpClient : HttpClient, private message: InputdatatransferService)
   {     
     let test = this.httpClient.get<any>("https://jsonplaceholder.typicode.com/photos");
     test.subscribe(
@@ -34,7 +35,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  AddToList(ItemId : number)
+  SearchQuery(query : any)
   {
+    var searchquery : string = query.target.value;
+      this.message.sendMessage(searchquery);
   }
 }

@@ -5,6 +5,7 @@ import { finalize } from 'rxjs/operators'
 import { StoreListSingleton } from './../Singletons/StoreListSingleton'
 import { BehaviorSubject } from 'rxjs';
 import { DatatransferService } from '../Core/Services/datatransfer.service';
+import { InputdatatransferService } from '../Core/Services/inputdatatransfer.service';
 
 function getRandomInt(max : number) {
   return Math.floor(Math.random() * max);
@@ -19,9 +20,11 @@ function getRandomInt(max : number) {
 export class MainComponent implements OnInit {
 
   JSONPOSTS! : JSONRESPONSE[];
+  FILTEREDJSONPOSTS : JSONRESPONSE[] = [];
   ListSingleton! : StoreListSingleton;
+  searchquery! : string;
 
-  constructor(public httpClient : HttpClient, private message: DatatransferService) { 
+  constructor(public httpClient : HttpClient, private message: DatatransferService, private inputmessage: InputdatatransferService) { 
     this.ListSingleton = StoreListSingleton.GetSingleton;
     let test = this.httpClient.get<any>("https://jsonplaceholder.typicode.com/photos");
     test.pipe( finalize(() => {
@@ -59,9 +62,31 @@ export class MainComponent implements OnInit {
     })).subscribe(
     response =>{
       this.JSONPOSTS = response;
+      this.FILTEREDJSONPOSTS = this.JSONPOSTS;
     }
     
   );
+
+  this.inputmessage.getMessage().subscribe(messageobject => {
+    if (messageobject)
+    {
+      if (messageobject === "" || messageobject === '')
+      {
+        this.FILTEREDJSONPOSTS = this.JSONPOSTS;
+      }
+      else
+      {
+       this.FILTEREDJSONPOSTS = [];
+       for (var i = 0; i < this.JSONPOSTS.length; i++)
+       {
+         if (this.JSONPOSTS[i].songname.toLowerCase().includes(messageobject.toLowerCase()))
+         {
+           this.FILTEREDJSONPOSTS.push(this.JSONPOSTS[i])
+         }
+       }
+      }        
+    }
+  })
   }
 
   ngOnInit(): void {
